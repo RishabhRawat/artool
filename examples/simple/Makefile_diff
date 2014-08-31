@@ -1,0 +1,23 @@
+#Makefile
+
+# C++ compiler
+CXX	=g++
+CC	=$(CXX)
+
+# Include and lib directories
+LIB_DIR=.
+INC_DIR_OTHER= -lGL -lGLU -lglut -lGLEW -lboost_thread -lboost_system
+
+INC_SOME= /usr/local/include
+TOTAL=  $(INC_DIR_OTHER) -pthread `pkg-config --cflags opencv``pkg-config --libs opencv` -L/usr/local/lib
+# options to pass to the compiler
+CXXFlags3= -Wall -g -I$(LIB_DIR) -I$(INC_SOME)
+all:  random1.o
+	g++ random1.o maya.o  $(TOTAL)  -o run
+	rm -f *.o
+random1.o: random1.cpp
+	g++ -c  $(CXXFlags3) random1.cpp maya.cpp  
+
+
+clean:
+	rm -f *.o run

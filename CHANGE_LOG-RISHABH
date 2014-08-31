@@ -1,0 +1,1 @@
+1. Gstreamer- (video.c) remove the env variable reading, pass it in vconf

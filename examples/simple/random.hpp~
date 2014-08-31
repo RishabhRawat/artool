@@ -1,0 +1,11 @@
+#ifndef RANDOM_H
+#define RANDOM_H
+#endif
+#ifdef __cplusplus
+extern "C"{
+#endif
+void read(void);
+void av(void);
+#ifdef __cplusplus
+}
+#endif
